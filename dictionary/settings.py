@@ -50,8 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'myDictionary.middlewares.myMiddleware.requestLoggerMiddleware',
-    'myDictionary.middlewares.myMiddleware.requestLoggerMiddleware2',
+    'myDictionary.middlewares.middleware.requestLoggerMiddleware',
+    'myDictionary.middlewares.middleware.requestLoggerMiddleware2',
+    'myDictionary.middlewares.middleware.CheckWordEntry',
 ]
 
 ROOT_URLCONF = "dictionary.urls"
