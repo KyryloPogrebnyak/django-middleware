@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+
 """
     #This Middleware to print/store the request info from the client
 """
@@ -36,20 +37,17 @@ def requestLoggerMiddleware2(getResponse):
 def CheckWordEntry(getResponse):
 
     def middleware(request):
-        print("\u001b[32mMy CheckWordEntry Middleware is working\u001b[0m")
-        
-        # Change "add" to "word" to match the form field name
-        word = request.POST.get("word")
-        
-        if word is not None:
-            if len(word) < 2:
-                print(f"I'm sorry, but the word \'{word}' is too short.\nThe length must be at least two characters.")
-            elif word.isnumeric():
-                print(f"I'm sorry, but you are able to use only letters. {word} is a number")
-            else:
-                print(word)
-        
         response = getResponse(request)
+        if request.path == "/add/" and request.method == "POST":
+            english = request.POST.get("english")
+            german = request.POST.get("german")
+            if english == "" or german == "":
+                return HttpResponse("Please add a word.")
+            elif english.isnumeric() or german.isnumeric():
+                return HttpResponse("Please enter letters instead of numbers.")
+            elif len(english) < 2 or len(german) < 2:
+                return HttpResponse("Please add a real word.")
+            
         return response
     
     return middleware

@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block content %}
+<style>
+    /* Define the CSS rules for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        color: white; /* Set the text color to white */
+    }
+
+    th {
+        background-color: #333;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="display-4 text-center">{{ pageName }}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">English</th>
+                    <th scope="col">German</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in words %}
+                <tr>
+                    <td>{{ word.english }}</td>
+                    <td>{{ word.german }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

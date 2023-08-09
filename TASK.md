@@ -15,3 +15,7 @@
 
 3. Create a new Middleware `CheckWordEntry`
     - if length of submitted word less than 2, show error (Think about to create an Error page in `pages`)
+
+## Task 
+1. Create another route (`word/all`) and use the same main template, show all words in a `table` (english | German|).
+2. Implement Search (GET) Request. The Response should be same main template, with the word in both languages.   
