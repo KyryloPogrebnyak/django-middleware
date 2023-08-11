@@ -3,8 +3,11 @@ from django.forms import ModelForm
 # Create your models here.
 
 class Word(models.Model):
-    english = models.CharField(max_length=40)
-    german = models.CharField(max_length=40)
+    english = models.CharField(max_length=30)
+    german = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.english
 
 class WordForm(ModelForm):
     class Meta:

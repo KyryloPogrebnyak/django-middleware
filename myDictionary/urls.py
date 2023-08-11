@@ -1,10 +1,13 @@
 from django.urls import path
-from . import views
+from .views import index, add, all, search, delete, edit
 # define some patterns for urls for my project
 
 urlpatterns = [
-    path("", views.index, name="home"),
-    path("add/", views.add, name="add"),
-    path("word/all/", views.all_words, name="all_words"),
-    path("search/", views.search, name="search"),  
+    # app paths
+    path("", index, name="home"),
+    path('add', add, name="addWord"),
+    path('all/', all, name="allWords"),
+    path('search/', search, name="Search"),
+    path('delete/', delete, name="Delete"),
+    path('edit/<int:word_id>/', edit, name="Edit"),
 ]

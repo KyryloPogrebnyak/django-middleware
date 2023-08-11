@@ -41,6 +41,20 @@
                 <tr>
                     <td>{{ word.english }}</td>
                     <td>{{ word.german }}</td>
+                    <td>
+                        <form action="/delete/" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="word_id" value="{{word.pk}}" >
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/edit/" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" name="word_id" value="{{word.pk}}">
+                            <a class="btn btn-warning" href="{% url 'Edit' word.pk %}">Edit</a>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
